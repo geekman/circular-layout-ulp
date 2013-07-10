@@ -81,7 +81,7 @@ void get_parts(string prefix, int start_num, int stop_num) {
 		board(B) {
 			unit_type = B.grid.unit;
 			B.elements(E) {
-				if (E.populate) {
+				//if (E.populate) {
 					if (! filter_part(E.name, prefix, start_num, stop_num))
 						continue;
 					item_name[num_items] = E.name;
@@ -89,7 +89,7 @@ void get_parts(string prefix, int start_num, int stop_num) {
 					item_x[num_items] = E.x;
 					item_y[num_items] = E.y;
 					num_items++;
-				}
+				//}
 			}
 		}
 	} else {
