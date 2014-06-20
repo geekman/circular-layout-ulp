@@ -29,13 +29,21 @@ real u2curr(int u) {
 real deg2rad(real deg) { return deg * PI / 180; }
 real rad2deg(real rad) { return rad * 180 / PI; }
 
+int find_digit(string s) {
+	for (int i = 0; s[i]; i++) {
+		if (isdigit(s[i]))
+			return i;
+	}
+	return -1;
+}
+
 int filter_part(string part_name, string prefix, int start_num, int stop_num) {
 	if (strstr(part_name, prefix) != 0)
 		return 0;
 
 	int pos;
 	int part_num;
-	pos = strxstr(part_name, "[0-9]+$");
+	pos = find_digit(part_name);
 	if (pos >= 0) {
 		// further filter prefix (to weed for e.g. "CN" from "C")
 		if (prefix && prefix != strsub(part_name, 0, pos))
